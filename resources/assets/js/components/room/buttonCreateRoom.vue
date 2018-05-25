@@ -6,14 +6,14 @@
 
 		<modal-create-room :stateModalRoomCreate="isModalCreateRoomActive" :roomTypes="roomTypes" @closeModalRoomCreate="changeStateModalFormCreate" @roomCreated="sendformEdit"></modal-create-room>
 
-		<modal-edit-room :stateModal="isModalEditRoomActive" :room="room" :roomTypes="roomTypes"></modal-edit-room>
+		<!-- <modal-edit-room :stateModal="isModalEditRoomActive" :room="room" :roomTypes="roomTypes"></modal-edit-room> -->
 	</div>
 </template>
 
 <script>
 	
 	Vue.component('modalCreateRoom', require('./modalCreateRoom'));
-	Vue.component('modalEditRoom', require('./modalEditRoom.vue'));
+	// Vue.component('modalEditRoom', require('./modalEditRoom.vue'));
 
 	export default {
 		mounted()
@@ -51,8 +51,8 @@
 				this.isModalEditRoomActive = !this.isModalEditRoomActive;
 			},
 			sendformEdit:function(room){
-
-				this.changeStateModalFormCreate();
+				this.isModalEditRoomActive = !this.isModalEditRoomActive;
+				// this.changeStateModalFormCreate();
 				this.$emit('roomCreated', room);
 			}
 		},

@@ -47791,11 +47791,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 
-// Vue.component('roomCard', require('./room.vue'));
+Vue.component('buttonCreateRoom', __webpack_require__(116));
 Vue.component('searchRoom', __webpack_require__(15));
 Vue.component('modalEditRoom', __webpack_require__(52));
 Vue.component('modalConfirm', __webpack_require__(71));
@@ -50098,6 +50096,8 @@ var render = function() {
     "div",
     {},
     [
+      _c("button-create-room", { on: { roomCreated: _vm.roomEdited } }),
+      _vm._v(" "),
       _c(
         "card",
         {
@@ -52856,6 +52856,506 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 113 */,
+/* 114 */,
+/* 115 */,
+/* 116 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(117)
+/* template */
+var __vue_template__ = __webpack_require__(121)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\room\\buttonCreateRoom.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-2ecbcc3a", Component.options)
+  } else {
+    hotAPI.reload("data-v-2ecbcc3a", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 117 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+Vue.component('modalCreateRoom', __webpack_require__(118));
+// Vue.component('modalEditRoom', require('./modalEditRoom.vue'));
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	mounted: function mounted() {
+		this.getRoomTypes();
+	},
+	data: function data() {
+		return {
+			isModalCreateRoomActive: false,
+			isModalEditRoomActive: false,
+			room: {
+				type: Object
+			},
+			roomTypes: {}
+		};
+	},
+
+	methods: {
+		getRoomTypes: function getRoomTypes() {
+			var _this = this;
+
+			axios.get('/roomTypes/all').then(function (res) {
+				_this.roomTypes = res.data;
+
+				// console.log(this.roomTypes);
+			}).catch(function (err) {
+				// console.log(err);
+			});
+		},
+		showFormCreateRoom: function showFormCreateRoom() {},
+		changeStateModalFormCreate: function changeStateModalFormCreate() {
+			this.isModalCreateRoomActive = !this.isModalCreateRoomActive;
+		},
+		changeStateModalFormEdit: function changeStateModalFormEdit() {
+			this.isModalEditRoomActive = !this.isModalEditRoomActive;
+		},
+		sendformEdit: function sendformEdit(room) {
+			this.isModalEditRoomActive = !this.isModalEditRoomActive;
+			// this.changeStateModalFormCreate();
+			this.$emit('roomCreated', room);
+		}
+	},
+	computed: {}
+});
+
+/***/ }),
+/* 118 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(119)
+/* template */
+var __vue_template__ = __webpack_require__(120)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\room\\modalCreateRoom.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-8864984c", Component.options)
+  } else {
+    hotAPI.reload("data-v-8864984c", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 119 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+Vue.component('modal', __webpack_require__(3));
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	props: {
+		stateModalRoomCreate: false,
+		roomTypes: {}
+	},
+	data: function data() {
+		return {
+			showModal: false,
+			room: {
+				name: '',
+				room_type_id: 0,
+				description: ''
+			},
+
+			isSaving: false
+		};
+	},
+
+	methods: {
+		openModal: function openModal() {
+			this.stateModalRoomCreate = true;
+		},
+		closeModal: function closeModal() {
+			this.stateModalRoomCreate = false;
+			this.$emit('closeModalRoomCreate');
+		},
+		submitAndClose: function submitAndClose() {
+			this.stateModalRoomCreate = false;
+			this.$emit('roomCreated', this.room);
+		},
+
+		createRoom: function createRoom() {
+			var _this = this;
+
+			var form = $('#formUpdateRoom');
+
+			this.isSaving = true;
+
+			axios.post("/room", form.serialize()).then(function (res) {
+				_this.room = res.data;
+				_this.submitAndClose();
+			}).catch(function (err) {
+				console.log(err);
+			});
+		}
+	}
+});
+
+/***/ }),
+/* 120 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "container", attrs: { id: "wrapper" } },
+    [
+      _vm.stateModalRoomCreate
+        ? _c("modal", { attrs: { width: 90 } }, [
+            _c(
+              "h3",
+              {
+                staticClass: "modal-title",
+                attrs: { slot: "header" },
+                slot: "header"
+              },
+              [_vm._v("\n\t\t\tCrear Habitación\n\t\t")]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { attrs: { slot: "body" }, slot: "body" },
+              [
+                _c("loader", {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.isSaving,
+                      expression: "isSaving"
+                    }
+                  ]
+                }),
+                _vm._v(" "),
+                _c(
+                  "form",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: !_vm.isSaving,
+                        expression: "!isSaving"
+                      }
+                    ],
+                    attrs: {
+                      action: "/room",
+                      method: "post",
+                      id: "formUpdateRoom"
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "container-fluid" }, [
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-md-4" }, [
+                          _c("div", { staticClass: "form-group" }, [
+                            _c("label", { attrs: { for: "" } }, [
+                              _vm._v("Nombre")
+                            ]),
+                            _vm._v(" "),
+                            _c("input", {
+                              staticClass: "form-control",
+                              attrs: { type: "text", name: "name" }
+                            })
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-4" }, [
+                          _c("div", { staticClass: "form-group" }, [
+                            _c("label", { attrs: { for: "" } }, [
+                              _vm._v("Tipo")
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "select",
+                              {
+                                staticClass: "form-control",
+                                attrs: { name: "room_type_id" }
+                              },
+                              [
+                                _c("option", { attrs: { selected: "" } }, [
+                                  _vm._v("- Seleccione un tipo -")
+                                ]),
+                                _vm._v(" "),
+                                _vm._l(_vm.roomTypes, function(type) {
+                                  return _c(
+                                    "option",
+                                    { domProps: { value: type.id } },
+                                    [_vm._v(_vm._s(type.type))]
+                                  )
+                                })
+                              ],
+                              2
+                            )
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-md-12" }, [
+                          _c("div", { staticClass: "form-group" }, [
+                            _c("label", { attrs: { for: "" } }, [
+                              _vm._v("Descripción")
+                            ]),
+                            _vm._v(" "),
+                            _c("textarea", {
+                              staticClass: "form-control",
+                              attrs: { name: "description" }
+                            })
+                          ])
+                        ])
+                      ])
+                    ])
+                  ]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: !_vm.isSaving,
+                    expression: "!isSaving"
+                  }
+                ],
+                attrs: { slot: "footer" },
+                slot: "footer"
+              },
+              [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-outline-info",
+                    attrs: { type: "button" },
+                    on: { click: _vm.closeModal }
+                  },
+                  [_vm._v(" Cancelar ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { type: "submit" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.createRoom($event)
+                      }
+                    }
+                  },
+                  [_vm._v("\n\t\t\t Crear\n\t\t   \t")]
+                )
+              ]
+            )
+          ])
+        : _vm._e()
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-8864984c", module.exports)
+  }
+}
+
+/***/ }),
+/* 121 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {},
+    [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-primary",
+          attrs: { href: "" },
+          on: {
+            click: function($event) {
+              $event.preventDefault()
+              return _vm.changeStateModalFormCreate($event)
+            }
+          }
+        },
+        [_vm._v("\n\t\tCrear Habitación\n\t")]
+      ),
+      _vm._v(" "),
+      _c("modal-create-room", {
+        attrs: {
+          stateModalRoomCreate: _vm.isModalCreateRoomActive,
+          roomTypes: _vm.roomTypes
+        },
+        on: {
+          closeModalRoomCreate: _vm.changeStateModalFormCreate,
+          roomCreated: _vm.sendformEdit
+        }
+      })
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-2ecbcc3a", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

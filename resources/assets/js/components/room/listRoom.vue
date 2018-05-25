@@ -1,13 +1,11 @@
 <template>
 	<div class="">
+		<button-create-room @roomCreated="roomEdited"></button-create-room>
 		<!-- <loader v-show="isSearching"></loader> -->
 		<card v-show="!isSearching">
 
 			<div slot="body">
 				<search-room @roomForEdit="selectedForEdit"></search-room>
-				<!-- <div class="col-3 pb-2" v-for="room in rooms">
-					<room-card :room="room" @editRoom="showRoom" @deleteRoom="changeStateModalConfirm"></room-card>
-				</div> -->
 
 				<modal-edit-room :stateModal="isModalActive" :room="selectedRoom" :roomTypes="roomTypes" @closeModal="changeStateModal" @submitAndClose="roomEdited"></modal-edit-room>
 
@@ -19,7 +17,7 @@
 
 <script>
 	
-	// Vue.component('roomCard', require('./room.vue'));
+	Vue.component('buttonCreateRoom', require('./buttonCreateRoom'));
 	Vue.component('searchRoom', require('./searchRoom'));
 	Vue.component('modalEditRoom', require('./modalEditRoom.vue'));
 	Vue.component('modalConfirm', require('../shared/modalConfirm'));

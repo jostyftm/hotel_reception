@@ -16,9 +16,9 @@ class UserTableSeeder extends Seeder
      		$admin->assignRole('admin');
      	});
 
-     	factory(App\User::class, 'user', 50)->create()
-     	->each(function($user){
-     		$user->assignRole('user');
-     	});
+     	// factory(App\User::class, 'user', 50)->create()
+     	// ->each(function($user){
+     	// 	$user->assignRole('user');
+     	// });
     }
 }

@@ -14,10 +14,10 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
         $this->call([
         	RoomTypeTableSeeder::class,
-        	RoomTableSeeder::class,
+        	// RoomTableSeeder::class,
         	RoleTableSeeder::class,
         	UserTableSeeder::class,
-            ReservationTableSeeder::class,
+            // ReservationTableSeeder::class,
         ]);
     }
 }

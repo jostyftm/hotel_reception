@@ -8,16 +8,13 @@ use App\User;
 $factory->define(App\Reservation::class, function (Faker $faker) {
     
 
-    $states = array('busy', 'no_busy', 'pending', 'canceled');
+    $states = array('busy', 'no_busy');
     $rooms = Room::whereHas('photos')->get()->pluck('id')->toArray();
     $users = User::role('user')->pluck('id')->toArray();
 
     $state = $faker->randomElement($states);
-    
-    if($state != 'pending' || $state != 'canceled'){
-        $date_entry = Carbon::yesterday();
-        $date_exit = Carbon::yesterday()->addHours(8);
-    }
+    $date_entry = Carbon::yesterday();
+    $date_exit = Carbon::yesterday()->addHours(8);
 
     return [
         'client_id'		=>	$faker->randomElement($users),

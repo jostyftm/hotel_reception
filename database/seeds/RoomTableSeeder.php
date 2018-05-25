@@ -14,7 +14,9 @@ class RoomTableSeeder extends Seeder
         factory(App\Room::class, 10)->create()
         ->each(function($room){
             $room->photos()->saveMany(
-                factory(App\RoomPhoto::class, 5)->make()
+                factory(App\RoomPhoto::class, 5)->make([
+                    'room_id'   =>  $room->id
+                ])
             );
         });
     }
