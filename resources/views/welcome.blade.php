@@ -1,95 +1,104 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html lang="en">
 
-        <title>Laravel</title>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
+    <title>Hotel Costa rica</title>
 
-            .full-height {
-                height: 100vh;
-            }
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    
+    {{-- Fonts --}}
+    <link rel="stylesheet" href="{{ asset('plugin/fontawesome/css/fontawesome-all.css') }}">
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+    <!-- Custom styles for this template -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
-            .position-ref {
-                position: relative;
-            }
+</head>
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+<body>
 
-            .content {
-                text-align: center;
-            }
+    <!-- Navigation -->
+    <nav class="navbar navbar-light bg-light static-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Hotel Costa Rica</a>
+        <a class="nav-link btn btn-primary" href="{{ route('login') }}">Iniciar sesión</a>
+    </div>
+</nav>
 
-            .title {
-                font-size: 84px;
-            }
+<!-- Masthead -->
+<header class="masthead text-white text-center">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-9 mx-auto">
+        <h1 class="mb-5">
+            Hotel Costa Rica, Su hogar fuera de casa!
+        </h1>
+    </div>
+    <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+        
+</div>
+</div>
+</div>
+</header>
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
 
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
+<!-- Image Showcases -->
+<section class="showcase">
+  <div class="container-fluid p-0">
+    <div class="row no-gutters">
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Hotel Fuck!
-                </div>
+      <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('img/bg-showcase-1.jpg');"></div>
+      <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+        <h2>Nuestros paquetes ofrecen</h2>
+        <p class="lead mb-0">
+        Cada una de nuestras habitaciones para huéspedes ofrece una gran variedad de comodidades y servicios dependiendo del tipo. Además de un gimnasio completo y opciones gastronómicas en las instalaciones, disfrutará de lo siguiente:
+        <ul>
+          <li>Acceso a Internet inalámbrica de alta velocidad</li>
+          <li>Secador de pelo</li>
+          <li>Plancha y tabla de planchar</li>
+          <li>Televisión por cable</li>
+        </ul>
+      </p>
+    </div>
+</div>
+<div class="row no-gutters">
+  <div class="col-lg-6 text-white showcase-img" style="background-image: url('img/bg-showcase-2.jpg');"></div>
+  <div class="col-lg-6 my-auto showcase-text">
+    <h2></h2>
+    <p class="lead mb-0">
+  Ademas de tener un amplio espacio de recreacion especialmente para los  niños y jovenes menores de 18 años, contamos con uno de los mejores sistemas de seguridad y con esto vigilantes que patrullan cada determinado tiempo por los alrededores del hotel para que sienta plena seguridad
+  </p>
+</div>
+</div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
-        </div>
-    </body>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="footer bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+    <p class="text-muted small mb-4 mb-lg-0">&copy; Todos los derechos reservados hotel costarica.</p>
+</div>
+<div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+</div>
+</div>
+</div>
+</footer>
+
+<!-- Bootstrap core JavaScript -->
+<script src="{{ asset('js/app.js') }}" defer></script>
+
+</body>
+
 </html>

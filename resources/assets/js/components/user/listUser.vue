@@ -1,8 +1,8 @@
 <template>
 	<card class="card">
 		<div slot="title">
-			<h3 class="float-left">Usuarios</h3>
-			<button class="float-right btn btn-outline-primary btn-sm" @click="changeStateModalUserCreate">Crear Usuario</button>
+			<h3 class="float-left">Clientes</h3>
+			<button class="float-right btn btn-outline-primary btn-sm" @click="changeStateModalUserCreate">Crear cliente</button>
 		</div>
 		
 		<div slot="body">

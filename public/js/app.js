@@ -50748,7 +50748,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("card", { staticClass: "card" }, [
     _c("div", { attrs: { slot: "title" }, slot: "title" }, [
-      _c("h3", { staticClass: "float-left" }, [_vm._v("Usuarios")]),
+      _c("h3", { staticClass: "float-left" }, [_vm._v("Clientes")]),
       _vm._v(" "),
       _c(
         "button",
@@ -50756,7 +50756,7 @@ var render = function() {
           staticClass: "float-right btn btn-outline-primary btn-sm",
           on: { click: _vm.changeStateModalUserCreate }
         },
-        [_vm._v("Crear Usuario")]
+        [_vm._v("Crear cliente")]
       )
     ]),
     _vm._v(" "),
@@ -51531,13 +51531,7 @@ var render = function() {
                 attrs: { slot: "header" },
                 slot: "header"
               },
-              [
-                _vm._v(
-                  "\n\t\t\tRegistrar Usuario - " +
-                    _vm._s(_vm.subtitle) +
-                    "\n\t\t"
-                )
-              ]
+              [_vm._v("\n\t\t\tCrear Reservación\n\t\t")]
             ),
             _vm._v(" "),
             _c(

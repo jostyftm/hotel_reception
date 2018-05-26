@@ -8,7 +8,7 @@
 	<!-- CSRF Token -->
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 
-	<title>{{ config('app.name', 'Laravel') }}</title>
+	<title>Hotel Costa rica</title>
 
 	<!-- Scripts -->
 	<script src="{{ asset('js/app.js') }}" defer></script>
@@ -32,7 +32,7 @@
 			@endguest
 				<div class="container">
 					<a class="navbar-brand" href="{{ url('/') }}">
-						{{ config('app.name', 'Laravel') }}
+						Hotel Costa rica
 					</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
@@ -48,8 +48,8 @@
 						<ul class="navbar-nav ml-auto">
 							<!-- Authentication Links -->
 							@guest
-								<li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-								<li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+								{{-- <li><a class="nav-link" href="{{ route('login') }}"></a></li> --}}
+								{{-- <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li> --}}
 							@else
 								<li class="nav-item dropdown">
 									<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -60,7 +60,7 @@
 										<a class="dropdown-item" href="{{ route('logout') }}"
 										   onclick="event.preventDefault();
 														 document.getElementById('logout-form').submit();">
-											{{ __('Logout') }}
+											Salir
 										</a>
 
 										<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -79,12 +79,12 @@
 			<nav class="navbar-light navbar-laravel">
 				<div class="container">
 					<ul class="nav justify-content-center">
-					  <li class="nav-item">
+					  {{-- <li class="nav-item">
 						<a class="nav-link active" href="#">
 							<i class="fa fa-home"></i>
 							Inicio
 						</a>
-					  </li>
+					  </li> --}}
 					  <li class="nav-item">
 						<a class="nav-link" href="{{route('room.index')}}">
 							<i class="fa fa-door-open"></i>
@@ -94,7 +94,7 @@
 					  <li class="nav-item">
 						<a class="nav-link" href="{{route('user.index')}}">
 							<i class="fa fa-user"></i>
-							Usuarios
+							Clientes
 						</a>
 					  </li>
 					  <li class="nav-item">
@@ -109,12 +109,12 @@
 							Estadisticas
 						</a>
 					  </li>
-					  <li class="nav-item">
+					  {{-- <li class="nav-item">
 						<a class="nav-link" href="#">
 							<i class="fa fa-cog"></i>
 							Configuración
 						</a>
-					  </li>
+					  </li> --}}
 					</ul>
 				</div>
 			</nav>

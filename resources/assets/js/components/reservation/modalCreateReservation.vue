@@ -2,7 +2,7 @@
  <div id="wrapper" class="container"> 
 	<modal v-if="stateModalReservationCreate" :width="90"> 
 		<h3 slot="header" class="modal-title">
-			Registrar Usuario - {{subtitle}}
+			Crear Reservación
 		</h3>
 		<div slot="body">
 			<loader v-show="isSaving"></loader>
