@@ -45,9 +45,7 @@
 	Vue.component('modal', require('../shared/modal'));
 
 	export default {
-		props:{
-			stateModalUserCreate: false,
-		},
+		props:['stateModalUserCreate'],
 		data(){
 			return {
 				showModal: false,
@@ -77,7 +75,7 @@
 				axios.post("/user", form.serialize())
 				.then(res => {
 					this.user = res.data;
-					this.submitAndClose();
+					window.location.reload();
 
 				}).catch(err => {
 					console.log(err);

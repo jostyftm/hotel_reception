@@ -20,7 +20,7 @@
 								<label for="">Tipo</label>
 								<select class="form-control" name="room_type_id">
 									<option selected>- Seleccione un tipo -</option>
-									<option v-for="type in roomTypes" :value="type.id">{{ type.type }}</option>
+									<option v-for="type in roomTypes" :value="type.id" :key="type.id">{{ type.type }}</option>
 								</select>
 							</div>
 						</div>
@@ -71,12 +71,12 @@
 				this.stateModalRoomCreate = true; 
 			},
 			closeModal() {
-			     this.stateModalRoomCreate = false;
+				 this.stateModalRoomCreate = false;
 			     this.$emit('closeModalRoomCreate');
 			},
 			submitAndClose() {
 				this.stateModalRoomCreate = false;
-			   this.$emit('roomCreated', this.room);
+			   	this.$emit('roomCreated', this.room);
 			},
 			createRoom:function(){
 
@@ -87,7 +87,8 @@
 				axios.post("/room", form.serialize())
 				.then(res => {
 					this.room = res.data;
-					this.submitAndClose();
+					// this.submitAndClose();
+					window.location.reload();
 
 				}).catch(err => {
 					console.log(err);

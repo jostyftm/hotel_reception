@@ -32,7 +32,7 @@
 		},
 		data(){
 			return {
-				rooms: {type:Object},
+				rooms: {type:[Object]},
 				roomTypes: {type:Array},
 				selectedRoom: {
 					type: Object

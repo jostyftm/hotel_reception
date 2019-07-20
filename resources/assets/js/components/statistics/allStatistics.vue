@@ -1,4 +1,5 @@
 <template>
+	<div>
 	<div class="widgets1 d-flex -flex-row justify-content-between">
 		<widget1 :class="{ bgDanger: true }">
 			<i class="fa fa-clock fa-3x" slot="icon"></i>
@@ -16,16 +17,25 @@
 			<h4 slot="value">{{ getTotalNoBusy() }}</h4>
 		</widget1>
 	</div>
+		<canvas id="myChart" width="400" height="200">
+
+		</canvas>
+	</div>
 </template>
 <script>
 
 	Vue.component('widget1', require("../shared/widget1"));
+	Vue.component('linechart', require("../shared/widgetLineChart"));
 
 	export default {
 		mounted(){
 			this.getReserveByState("busy");
 			this.getReserveByState("no_busy");
 			this.getReserveTooLate();
+			
+			setTimeout( () => {
+				this.getCharData();	
+			}, 2000)
 		},
 		data: function(){
 			return {
@@ -36,6 +46,50 @@
 			}
 		},
 		methods:{
+			getCharData: function(){
+				let ctx = document.getElementById('myChart');
+
+				console.log(this.reserveBusy);
+
+				let busy = this.reserveBusy.length,
+					noBusy = this.reserveNoBusy.length,
+					tooLlate = this.reserveTooLate.length;
+
+				let myChart = new Chart(ctx, {
+					type: 'bar',
+					data: {
+						labels: ['Habitaciones retradasas', 'Habitaciones ocupadas', 'Habitaciones disponibles'],
+						datasets: [{
+							label: '# of Votes',
+							data: [
+								tooLlate,
+								busy,
+								noBusy,
+							],
+							backgroundColor: [
+								'rgba(255, 99, 132, 0.2)',
+								'rgba(54, 162, 235, 0.2)',
+								'rgba(255, 206, 86, 0.2)',
+							],
+							borderColor: [
+								'rgba(255, 99, 132, 1)',
+								'rgba(54, 162, 235, 1)',
+								'rgba(255, 206, 86, 1)',
+							],
+							borderWidth: 1
+						}]
+					},
+					options: {
+						scales: {
+							yAxes: [{
+								ticks: {
+									beginAtZero: true
+								}
+							}]
+						}
+					}
+				});
+			},
 			getReservations: function(state){
 				// window.setInterval(this.getReserveByState, 5000, state);
 			},

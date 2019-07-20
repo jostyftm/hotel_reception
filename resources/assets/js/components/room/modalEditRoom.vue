@@ -22,7 +22,11 @@
 								<label for="">Tipo</label>
 								<select class="form-control" name="room_type_id">
 									<option value="">- Seleccione un tipo -</option>
-									<option v-for="type in roomTypes" :value="type.id" :selected="room.room_type_id === type.id">{{ type.type }}</option>
+									<option 
+									v-for="type in roomTypes"
+									:key="type.id" 
+									:value="type.id" 
+									:selected="room.room_type_id === type.id">{{ type.type }}</option>
 								</select>
 							</div>
 						</div>
@@ -86,6 +90,7 @@
 				let response = await axios.put(url, form.serialize())
 				.then(res => {
 					console.log(res);
+					window.location.reload();
 				}).catch(err => {
 					console.log(err);
 				});
